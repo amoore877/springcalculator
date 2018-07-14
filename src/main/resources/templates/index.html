@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Calculator</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+</head>
+
+
+<body>
+    <form method="post" th:object="${canvas}">
+        <div class="container mx-3 mt-4">
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-a">Argument A</span>
+                        </div>
+                        <input type="text" th:field="*{a}" class="form-control" aria-label="Argument A" aria-describedby="addon-a">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-b">Argument B</span>
+                        </div>
+                        <input type="text" th:field="*{b}" class="form-control" aria-label="Argument B" aria-describedby="addon-b">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-3">
+                    <button type="submit" name="operation" value="add" class="btn btn-primary btn-block">Add</button>
+                </div>
+                <div class="col col-md-3">
+                    <button type="submit" name="operation" value="subtract" class="btn btn-primary btn-block">Subtract</button>
+                </div>
+                <div class="col col-md-3">
+                    <button type="submit" name="operation" value="multiply" class="btn btn-primary btn-block">Multiply</button>
+                </div>
+                <div class="col col-md-3">
+                    <button type="submit" name="operation" value="divide" class="btn btn-primary btn-block">Divide</button>
+                </div>
+            </div>
+    </form>
+    <div class="row mt-4">
+        <div class="col col-md-12">
+            <h2>Result</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-12">
+            <blockquote class="blockquote">
+                <p class="mb-0" th:text="${canvas.result}"></p>
+            </blockquote>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
