@@ -345,7 +345,7 @@ public class CalculatorService {
 
 				String[] splitResult = subResult.split("R");
 				quotientWholeString = add(quotientWholeString,
-						multiply(String.valueOf(10 * (digitDiff - 1)), splitResult[0]));
+						NumberService.rightPadZeroes(splitResult[0], digitDiff - 1));
 
 				if (splitResult.length > 1) {
 					newA = splitResult[1];

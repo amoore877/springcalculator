@@ -36,4 +36,40 @@ public class NumberServiceTest {
 	public void normalizeMultipleNumbers() {
 		assertTrue("12345 did not normalize correctly", NumberService.normalize("12345").equals("12345"));
 	}
+
+	@Test
+	public void removeNoLeftPad() {
+		assertTrue("12632 did not get filtered for extra 0's correctly",
+				NumberService.removeLeftPadZeroes("12632").equals("12632"));
+	}
+
+	@Test
+	public void removeLeftPad() {
+		assertTrue("0012632 did not get filtered for extra 0's correctly",
+				NumberService.removeLeftPadZeroes("0012632").equals("12632"));
+	}
+
+	@Test
+	public void removeLeftPadAll0() {
+		assertTrue("000000 did not get filtered for extra 0's correctly",
+				NumberService.removeLeftPadZeroes("000000").equals("0"));
+	}
+
+	@Test
+	public void rightPad0() {
+		assertTrue("123 with no extra 0's did not get padded correctly",
+				NumberService.rightPadZeroes("123", 0).equals("123"));
+	}
+
+	@Test
+	public void rightPadNeg() {
+		assertTrue("123 with negative 0's did not get padded correctly",
+				NumberService.rightPadZeroes("123", -2).equals("123"));
+	}
+
+	@Test
+	public void rightPadPos() {
+		assertTrue("123 with 5 0's did not get padded correctly",
+				NumberService.rightPadZeroes("123", 5).equals("12300000"));
+	}
 }
