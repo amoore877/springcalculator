@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller()
 public class HomeController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public static final String UNKNOWN_OPERATION = "Unknown operation!";
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("canvas", new CalculatorCanvas());
         return "index";
@@ -42,7 +44,7 @@ public class HomeController {
         } else if (operation.equalsIgnoreCase("divide")) {
             canvas.setResult(CalculatorService.divide(canvas.getA(), canvas.getB()));
         } else {
-            canvas.setResult("Unknown operation!");
+            canvas.setResult(UNKNOWN_OPERATION);
         }
 
         return "index";
